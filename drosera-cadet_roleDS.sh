@@ -124,3 +124,6 @@ else
     echo -e "${RED}❌ Не удалось запустить службу drosera${NC}"
     echo -e "${YELLOW}Статус службы:${NC}"
     systemctl status drosera.service --no-pager
+fi
+
+exit 0
