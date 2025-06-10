@@ -56,7 +56,22 @@ sed -i 's|^response_function = .*|response_function = "respondWithDiscordName(st
 if ! command -v forge &> /dev/null || ! command -v cast &> /dev/null; then
     echo -e "${CYAN}Install Foundry (forge + cast)...${NC}"
     curl -L https://foundry.paradigm.xyz | bash
-    source ~/.bashrc || source ~/.zshrc || true
+    
+    # Безопасно загружаем .bashrc без ошибок PS1
+    if [[ -f ~/.bashrc ]]; then
+        set +u  # Временно отключаем проверку неопределенных переменных
+        source ~/.bashrc 2>/dev/null || true
+        set -u  # Включаем обратно
+    fi
+    
+    # Альтернативно загружаем .zshrc
+    if [[ -f ~/.zshrc ]]; then
+        set +u
+        source ~/.zshrc 2>/dev/null || true
+        set -u
+    fi
+    
+    # Запускаем foundryup
     foundryup
     
     # Обновляем PATH для текущей сессии
@@ -64,7 +79,8 @@ if ! command -v forge &> /dev/null || ! command -v cast &> /dev/null; then
     
     # Проверяем что установка прошла успешно
     if ! command -v forge &> /dev/null || ! command -v cast &> /dev/null; then
-        echo -e "${RED}Error: Не удалось установить Foundry. Перезапустите терминал и попробуйте снова.${NC}"
+        echo -e "${RED}Error: Не удалось установить Foundry. Попробуйте выполнить вручную:${NC}"
+        echo -e "${YELLOW}source ~/.bashrc && foundryup${NC}"
         exit 1
     fi
     
