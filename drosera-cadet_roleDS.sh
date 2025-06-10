@@ -62,29 +62,11 @@ drosera dryrun
 echo -e "${BLUE}drosera apply...${NC}"
 drosera apply
 
-get_wallet_address() {
-    local private_key=$1
-
-    local wallet_address=$(cast wallet address --private-key "$private_key" 2>/dev/null)
-    
-    if [[ -z "$wallet_address" ]]; then
-        echo -e "${RED}Error: Не удалось получить адрес кошелька из приватного ключа${NC}"
-        exit 1
-    fi
-    
-    echo "$wallet_address"
-}
-
-echo -e "${BLUE}Получаем адрес кошелька из приватного ключа...${NC}"
-WALLET_ADDRESS=$(get_wallet_address "$PRIV_KEY")
-echo -e "${GREEN}Адрес кошелька: $WALLET_ADDRESS${NC}"
-
-echo -e "YELLOW: Ожидаем 60 секунд для загрузки...\n"
+echo -e "${PURPLE}Ожидаем 60 секунд для загрузки...\n${NC}"
 sleep 60
-echo -e "PURPLE: Начинаем поиск Discord имени в списке...\n"
 
 while true; do
-    echo -e "BLUE: Ищем Discord имя $DISCORD в списке подтверждённых пользователей...\n"
+    echo -e "${YELLOW}Ищем Discord имя $DISCORD в списке подтверждённых пользователей...\n${NC}"
 
     DISCORD_SEARCH=$(cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E \
         "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 \
@@ -92,7 +74,7 @@ while true; do
 
     if [[ -n "$DISCORD_SEARCH" ]]; then
         echo -e "\033[0;32m✅ Discord имя найдено в списке:\033[0m"
-        echo -e "\033[0;32m$DISCORD_SEARCH\033[0m"
+        echo -e "\033[0;33m$DISCORD_SEARCH\033[0m"
         break
     else
         echo -e "\033[0;31m❌ Discord имя '$DISCORD' не найдено в списке подтверждённых пользователей.\033[0m"
@@ -151,15 +133,11 @@ echo "=========================================="
 echo -e "${NC}"
 
 echo -e "Discord имя: ${YELLOW}$DISCORD${NC}"
-echo -e "Адрес кошелька: ${YELLOW}$WALLET_ADDRESS${NC}"
-
 if [[ -n "$DISCORD_SEARCH" ]]; then
     echo -e "Discord в списке: ${GREEN}✅ НАЙДЕН${NC}"
 else
     echo -e "Discord в списке: ${RED}❌ НЕ НАЙДЕН${NC}"
 fi
-
-echo -e "Конфигурация: ${GREEN}✅ ВОССТАНОВЛЕНА${NC}"
 
 if systemctl is-active --quiet drosera.service; then
     echo -e "Служба drosera: ${GREEN}✅ ЗАПУЩЕНА${NC}"
