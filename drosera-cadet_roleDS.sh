@@ -79,8 +79,8 @@ echo -e "${BLUE}Получаем адрес кошелька из приватн
 WALLET_ADDRESS=$(get_wallet_address "$PRIV_KEY")
 echo -e "${GREEN}Адрес кошелька: $WALLET_ADDRESS${NC}"
 
-echo -e "${YELLOW}Ожидаем 30 секунд для загрузки...${NC}"
-sleep 30
+echo -e "${YELLOW}Ожидаем 200 секунд для загрузки...${NC}"
+sleep 200
 
 echo -e "${PURPLE}===Ищем Discord имя в списке ===${NC}"
 echo -e "${BLUE}Ищем Discord имя '$DISCORD' в списке подтверждённых пользователей...${NC}"
