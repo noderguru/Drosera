@@ -3,7 +3,6 @@ set -euo pipefail
 
 export PATH="$HOME/.foundry/bin:$PATH"
 
-# Цвета текста
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -132,7 +131,6 @@ systemctl daemon-reload
 sleep 2
 systemctl start drosera.service
 
-# Проверяем статус службы
 if systemctl is-active --quiet drosera.service; then
     echo -e "${GREEN}✅ Служба drosera успешно запущена${NC}"
 else
@@ -141,10 +139,9 @@ else
     systemctl status drosera.service --no-pager
 fi
 
-# Финальный отчет
 echo -e "${CYAN}"
 echo "=========================================="
-echo "           ФИНАЛЬНЫЙ ОТЧЕТ"
+echo "           "ФИНАЛЬНЫЙ ОТЧЕТ"
 echo "=========================================="
 echo -e "${NC}"
 
