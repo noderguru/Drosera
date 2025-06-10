@@ -124,31 +124,3 @@ else
     echo -e "${RED}❌ Не удалось запустить службу drosera${NC}"
     echo -e "${YELLOW}Статус службы:${NC}"
     systemctl status drosera.service --no-pager
-fi
-
-echo -e "${CYAN}"
-echo "=========================================="
-echo "           "ФИНАЛЬНЫЙ ОТЧЕТ"
-echo "=========================================="
-echo -e "${NC}"
-
-echo -e "Discord имя: ${YELLOW}$DISCORD${NC}"
-if [[ -n "$DISCORD_SEARCH" ]]; then
-    echo -e "Discord в списке: ${GREEN}✅ НАЙДЕН${NC}"
-else
-    echo -e "Discord в списке: ${RED}❌ НЕ НАЙДЕН${NC}"
-fi
-
-if systemctl is-active --quiet drosera.service; then
-    echo -e "Служба drosera: ${GREEN}✅ ЗАПУЩЕНА${NC}"
-else
-    echo -e "Служба drosera: ${RED}❌ НЕ ЗАПУЩЕНА${NC}"
-fi
-
-echo
-echo -e "${GREEN}Скрипт выполнен успешно!${NC}"
-echo
-echo -e "${YELLOW}Полезные команды:${NC}"
-echo "  Статус службы: systemctl status drosera.service"
-echo "  Логи службы: journalctl -u drosera.service -f"
-echo "  Перезапуск: systemctl restart drosera.service"
