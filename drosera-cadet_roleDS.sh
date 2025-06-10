@@ -79,22 +79,27 @@ echo -e "${BLUE}Получаем адрес кошелька из приватн
 WALLET_ADDRESS=$(get_wallet_address "$PRIV_KEY")
 echo -e "${GREEN}Адрес кошелька: $WALLET_ADDRESS${NC}"
 
-echo -e "${YELLOW}Ожидаем 200 секунд для загрузки...${NC}"
-sleep 200
+echo -e "YELLOW: Ожидаем 60 секунд для загрузки...\n"
+sleep 60
+echo -e "PURPLE: Начинаем поиск Discord имени в списке...\n"
 
-echo -e "${PURPLE}===Ищем Discord имя в списке ===${NC}"
-echo -e "${BLUE}Ищем Discord имя '$DISCORD' в списке подтверждённых пользователей...${NC}"
+while true; do
+    echo -e "BLUE: Ищем Discord имя $DISCORD в списке подтверждённых пользователей...\n"
 
-DISCORD_SEARCH=$(cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E \
-    "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 \
-    --rpc-url https://ethereum-holesky-rpc.publicnode.com/ 2>/dev/null | grep -i "$DISCORD" || echo "")
+    DISCORD_SEARCH=$(cast call 0x4608Afa7f277C8E0BE232232265850d1cDeB600E \
+        "getDiscordNamesBatch(uint256,uint256)(string[])" 0 2000 \
+        --rpc-url https://ethereum-holesky-rpc.publicnode.com/ 2>/dev/null | grep -i "$DISCORD" || echo "")
 
-if [[ -n "$DISCORD_SEARCH" ]]; then
-    echo -e "${GREEN}✅ Discord имя найдено в списке:${NC}"
-    echo -e "${GREEN}$DISCORD_SEARCH${NC}"
-else
-    echo -e "${RED}❌ Discord имя '$DISCORD' не найдено в списке подтверждённых пользователей${NC}"
-fi
+    if [[ -n "$DISCORD_SEARCH" ]]; then
+        echo -e "\033[0;32m✅ Discord имя найдено в списке:\033[0m"
+        echo -e "\033[0;32m$DISCORD_SEARCH\033[0m"
+        break
+    else
+        echo -e "\033[0;31m❌ Discord имя '$DISCORD' не найдено в списке подтверждённых пользователей.\033[0m"
+        echo -e "Ожидание 60 секунд перед повторной проверкой...\n"
+        sleep 60
+    fi
+done
 
 sleep 3
 echo -e "${PURPLE}=== Возвращаемся к исходному контракту ===${NC}"
