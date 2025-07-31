@@ -1,10 +1,13 @@
-### Обнова на самую последнюю версию, если вышло очередное обновление то снова запускаем команду - автоматом подтянет новую
+### 1) Автоинсталл в сети holesky 
+```bash
+bash <(curl -s https://raw.githubusercontent.com/noderguru/Drosera/main/drosera_autoinstall_inHolesky-ntw.sh)
+```
+### 2) Обнова на самую последнюю версию. Если вышло очередное обновление то снова запускаем команду - автоматом подтянет свежую
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/noderguru/Drosera/main/update_drosera_operator_to_latestVersion.sh)
 ```
 
 ## Получаем роль 🔴Cadet💂 в Дискорде Drosera
-
 
 ```bash
 curl -L https://foundry.paradigm.xyz | bash && source /root/.bashrc && foundryup
