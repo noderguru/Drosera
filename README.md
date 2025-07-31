@@ -1,4 +1,4 @@
-## 1) Автоинсталл в сети holesky 
+## 1) Автоинсталл в сети holesky системной службой SystemD
 --- получаем токены в кране https://cloud.google.com/application/web3/faucet/ethereum/holesky
 
 --- RPC берём здесь https://www.ankr.com/rpc/eth или https://dashboard.alchemy.com/apps или https://dashboard.blockpi.io/rpc/endpoint
