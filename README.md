@@ -7,7 +7,7 @@ bash <(curl -s https://raw.githubusercontent.com/noderguru/Drosera/main/drosera_
 bash <(curl -s https://raw.githubusercontent.com/noderguru/Drosera/main/update_drosera_operator_to_latestVersion.sh)
 ```
 
-## Получаем роль 🔴Cadet💂 в Дискорде Drosera
+### 3) Получаем роль 🔴Cadet💂 в Дискорде Drosera https://discord.gg/acYp8jpR
 
 ```bash
 curl -L https://foundry.paradigm.xyz | bash && source /root/.bashrc && foundryup
