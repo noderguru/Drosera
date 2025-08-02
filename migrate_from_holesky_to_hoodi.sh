@@ -21,7 +21,7 @@ read -rp "" RPC_URL
 DRO_RPC="https://relay.hoodi.drosera.io"
 CHAIN_ID=560048
 DRO_ADDRESS="0x91cB447BaFc6e0EA0F4Fe056F5a9b1F14bb06e5D"
-
+RESP_CONTR="0x183D78491555cb69B68d2354F7373cc2632508C7"
 TOML_PATH="/root/my-drosera-trap/drosera.toml"
 ENV_FILE="$HOME/.drosera_operator.env"
 SERVICE_FILE="/etc/systemd/system/drosera.service"
@@ -33,6 +33,7 @@ sed -i -E \
     -e "s#^drosera_rpc = \".*\"#drosera_rpc = \"$DRO_RPC\"#" \
     -e "s#^eth_chain_id = .*#eth_chain_id = $CHAIN_ID#" \
     -e "s#^drosera_address = \".*\"#drosera_address = \"$DRO_ADDRESS\"#" \
+    -e "s#^response_contract = \".*\"#response_contract = \"$RESP_CONTR\"#" \
     "$TOML_PATH"
 
 sed -i -E "s#^[[:space:]]*address =#\#address =#" "$TOML_PATH"
@@ -63,6 +64,8 @@ grep -qxF 'export PATH="/root/.drosera/bin:$PATH"' ~/.bashrc || \
     echo 'export PATH="/root/.drosera/bin:$PATH"' >> ~/.bashrc
 
 echo -e "\n${MAGENTA}✅ Configuration complete!${RESET} ${CYAN}Next steps:${RESET}\n"
+
+cd /root/my-drosera-trap/
 
 echo -e "${CYAN}\nRequest test tokens for the Hoodi network in any of the fausets:${RESET}"
 echo -e "1) https://stakely.io/faucet/ethereum-hoodi-testnet-eth"
