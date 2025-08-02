@@ -73,7 +73,7 @@ echo -e "3) https://faucet.quicknode.com/ethereum/hoodi"
 echo -e "${MAGENTA}\n===========================================================${RESET}"
 
 echo -e "${CYAN}⚠️  Please reload your shell environment to pick up the new PATH:${RESET}"
-echo -e "    ${YELLOW}source ~/.bashrc${RESET}"
+echo -e "    ${YELLOW}cd /root/my-drosera-trap && source ~/.bashrc${RESET}"
 
 echo -e "${GREEN}1) Apply the Trap Config${RESET}"
 echo -e "   ${MAGENTA}DROSERA_PRIVATE_KEY=0xYOUR_PRIVATE_KEY drosera apply${RESET}\n"
