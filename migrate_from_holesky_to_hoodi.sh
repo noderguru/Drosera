@@ -9,6 +9,8 @@ MAGENTA='\033[0;35m'
 CYAN='\033[0;36m'
 RESET='\033[0m'
 
+cd /root/my-drosera-trap || { echo -e "${RED}❌ Failed to cd into /root/my-drosera-trap${RESET}"; exit 1; }
+
 echo -e "${CYAN}🌍 RPC We take here:${RESET}"
 echo -e "▶️ https://www.ankr.com/rpc/eth"
 echo -e "▶️ https://dashboard.alchemy.com/apps"
@@ -64,8 +66,6 @@ grep -qxF 'export PATH="/root/.drosera/bin:$PATH"' ~/.bashrc || \
     echo 'export PATH="/root/.drosera/bin:$PATH"' >> ~/.bashrc
 
 echo -e "\n${MAGENTA}✅ Configuration complete!${RESET} ${CYAN}Next steps:${RESET}\n"
-
-cd /root/my-drosera-trap/
 
 echo -e "${CYAN}\nRequest test tokens for the Hoodi network in any of the fausets:${RESET}"
 echo -e "1) https://stakely.io/faucet/ethereum-hoodi-testnet-eth"
