@@ -27,6 +27,10 @@ RESP_CONTR="0x183D78491555cb69B68d2354F7373cc2632508C7"
 TOML_PATH="/root/my-drosera-trap/drosera.toml"
 ENV_FILE="$HOME/.drosera_operator.env"
 SERVICE_FILE="/etc/systemd/system/drosera.service"
+WORKDIR="/root/my-drosera-trap"
+
+cd "$WORKDIR" || { echo -e "${RED}❌ Cannot cd into $WORKDIR${RESET}"; exit 1; }
+TOML_PATH="$WORKDIR/drosera.toml"
 
 echo -e "${YELLOW}🔧 Updating drosera.toml at ${TOML_PATH}...${RESET}"
 # Update top-level settings
