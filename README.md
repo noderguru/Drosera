@@ -31,5 +31,5 @@ chmod +x /root/my-drosera-trap/drosera-cadet_roleDS.sh && \
 ```
 ## 4️⃣ Переход из Holesky в Hoodi (внутри скрипта будут все необходимые подсказки и команды)
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/noderguru/Drosera/main/migrate_from_holesky_to_hoodi.sh)
+curl -O https://raw.githubusercontent.com/noderguru/Drosera/main/migrate_from_holesky_to_hoodi.sh && chmod +x migrate_from_holesky_to_hoodi.sh && source migrate_from_holesky_to_hoodi.sh
 ```
