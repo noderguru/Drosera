@@ -29,7 +29,7 @@ curl -sSL https://raw.githubusercontent.com/noderguru/Drosera/main/drosera-cadet
 chmod +x /root/my-drosera-trap/drosera-cadet_roleDS.sh && \
 /root/my-drosera-trap/drosera-cadet_roleDS.sh
 ```
-## 4️⃣ Создаём второй Trap в сети Hoodi (внутри скрипта будут все необходимые подсказки и команды)
+## 4️⃣ Создаём Trap в сети Hoodi (внутри скрипта будут все необходимые подсказки и команды)
 ```bash
 bash <(curl -sSfL https://raw.githubusercontent.com/noderguru/Drosera/main/migrate_from_holesky_to_hoodi.sh)
 ```
