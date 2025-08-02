@@ -9,8 +9,6 @@ MAGENTA='\033[0;35m'
 CYAN='\033[0;36m'
 RESET='\033[0m'
 
-cd /root/my-drosera-trap || { echo -e "${RED}❌ Failed to cd into /root/my-drosera-trap${RESET}"; exit 1; }
-
 echo -e "${CYAN}🌍 RPC We take here:${RESET}"
 echo -e "▶️ https://www.ankr.com/rpc/eth"
 echo -e "▶️ https://dashboard.alchemy.com/apps"
