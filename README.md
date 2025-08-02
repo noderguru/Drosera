@@ -29,12 +29,13 @@ curl -sSL https://raw.githubusercontent.com/noderguru/Drosera/main/drosera-cadet
 chmod +x /root/my-drosera-trap/drosera-cadet_roleDS.sh && \
 /root/my-drosera-trap/drosera-cadet_roleDS.sh
 ```
-## 4️⃣ Разворачиваем второй Trap в сети Hoodi (внутри скрипта будут все необходимые подсказки и команды)
+## 4️⃣ Создаём второй Trap в сети Hoodi (внутри скрипта будут все необходимые подсказки и команды)
 ```bash
 bash <(curl -sSfL https://raw.githubusercontent.com/noderguru/Drosera/main/migrate_from_holesky_to_hoodi.sh)
 ```
 ## 5️⃣ Получаем роль Noderunner❇️ 
 переходим в ветку ⁠🗳-poll-channel  https://discord.com/channels/1195369272554303508/1364697426379673600 и отвечаем на вопросы
+
 <img width="603" height="175" alt="image" src="https://github.com/user-attachments/assets/3f2edace-2efe-4c0f-961a-f175824d6526" />
 
 
