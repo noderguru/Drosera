@@ -38,5 +38,8 @@ bash <(curl -sSfL https://raw.githubusercontent.com/noderguru/Drosera/main/migra
 
 <img width="603" height="175" alt="image" src="https://github.com/user-attachments/assets/3f2edace-2efe-4c0f-961a-f175824d6526" />
 
+## 5️⃣ Получаем роль Corporal🔰
+Создаём тикет с просьбой выдать роль, указываем адрес кошелька который создал trap и прикрепляем скриншот работы самого trap
+
 
 
